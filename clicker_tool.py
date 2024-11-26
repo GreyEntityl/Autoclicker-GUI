@@ -1,23 +1,10 @@
 import tkinter as tk
 from tkinter import messagebox
-#import pyautogui
 import keyboard
-
-import os
-
-import time
-
-
 from pynput.mouse import Button, Controller
-
 import time
-import os
 
 mouse = Controller()
-#from time import sleep
-
-global isMouse
-isMouse = True
 
 MouseButtons={
     "left":Button.left,
@@ -30,11 +17,6 @@ def click(duration=0.0,button=Button.left):
     mouse.press(button)
     time.sleep(duration)
     mouse.release(button)
-
-#def entryTry (entry, entry_get):
-#    entry = entry_get.get()
-#    return entry
-
 
 def clicker_tool(keypress='s', clicks=2, key='left', interval=0.0, duration=0.0, cps_precision=0.1):
     m=False
@@ -56,8 +38,8 @@ def clicker_tool(keypress='s', clicks=2, key='left', interval=0.0, duration=0.0,
                 time.sleep(0.5)
                 break
                 
-            click(duration,button) # The line `lm=time.mono` seems to be incomplete and contains a typo.
-            c+=1        # It should be `lm = time.monotonic()`.
+            click(duration,button)
+            c+=1
             cps = c/(time.monotonic()-tim+0.0001)
             if clicks < cps:
                 s+=cps_precision
@@ -66,7 +48,6 @@ def clicker_tool(keypress='s', clicks=2, key='left', interval=0.0, duration=0.0,
                 s-=cps_precision
                 if s<0.0:
                     s=0.0
-            #if not s==0.0:
             time.sleep(s)
                 
                 
@@ -100,13 +81,8 @@ def clicker():
         else: duration = float(entry_duration.get())
         if entry_precision.getboolean(): precision = 0.1
         else: precision = float(entry_precision.get())
-    if isMouse:
-        messagebox.showinfo("Clicker starting", "Clicker is started with "+str(clicks)+" clicks per second,"+key+" mouse button, "+str(interval)+" interval and "+str(duration)+" per clicks !!.\nPress | "+keypress+" | key for start clicker !!")
-    else:
-        messagebox.showinfo("Clicker starting", "Clicker is started with "+str(clicks)+" press,"+key+" key, "+str(interval)+" interval !!.\nPress | "+keypress+" | key for start clicker !!")
+    messagebox.showinfo("Clicker starting", "Clicker is started with "+str(clicks)+" press,"+key+" key, "+str(interval)+" interval !!.\nPress | "+keypress+" | key for start clicker !!")
     clicker_tool(keypress, clicks, key, interval, duration, precision)
-    
-# Create the main window
 
 root = tk.Tk()
 
@@ -141,11 +117,7 @@ label_precision.pack()
 entry_precision = tk.Entry(root)
 entry_precision.pack()
 
-
-# Connect button
 start_clicker = tk.Button(root, text="Start", command=clicker)
 start_clicker.pack()
 
-
-# Run the main loop
 root.mainloop()
