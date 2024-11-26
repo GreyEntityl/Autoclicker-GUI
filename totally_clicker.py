@@ -3,6 +3,9 @@ from tkinter import messagebox
 import keyboard
 import time
 from pynput.mouse import Button, Controller
+import os
+os.system('cls' if os.name == 'nt' else 'clear')
+
 
 mouse = Controller()
 
