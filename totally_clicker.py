@@ -60,9 +60,8 @@ def clicker():
         interval = float(entry_interval.get())
         duration = float(entry_duration.get())
 
-    except ValueError:
-        if entry_keypress.getboolean(): keypress = 's'
-        else: keypress = entry_keypress.get()
+    except ValueError:      
+        keypress = ('s' if entry_keypress.getboolean() else entry_keypress.get())
         if entry_key.getboolean(): key = 'left'
         else: key = entry_key.get()
         if entry_interval.getboolean(): interval = 0.0
