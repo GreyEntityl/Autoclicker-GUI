@@ -52,7 +52,6 @@ def clicker_tool(keypress='s', clicks=2, key='left', interval=0.0, duration=0.0,
                     s=0.0
             time.sleep(s)
                 
-                
             lm=time.monotonic()
             while interval > time.monotonic()-lm:
                 if keyboard.is_pressed(keypress):
@@ -104,7 +103,7 @@ label_key.pack()
 entry_key = tk.Entry(root)
 entry_key.pack()
 
-label_interval = tk.Label(root, text="Interval for clicks")
+label_interval = tk.Label(root, text="Clicks interval")
 label_interval.pack()
 entry_interval = tk.Entry(root)
 entry_interval.pack()

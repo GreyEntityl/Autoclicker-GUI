@@ -78,7 +78,7 @@ label_key.pack()
 entry_key = tk.Entry(root)
 entry_key.pack()
 
-label_interval = tk.Label(root, text="Interval for clicks")
+label_interval = tk.Label(root, text="Click interval")
 label_interval.pack()
 entry_interval = tk.Entry(root)
 entry_interval.pack()
