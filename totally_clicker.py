@@ -53,21 +53,11 @@ def clicker_tool(keypress='s', key='left', interval=0.0, duration=0.0):
                     break
                 
 
-def clicker():
-    try:
-        keypress = entry_keypress.get()
-        key = entry_key.get()
-        interval = float(entry_interval.get())
-        duration = float(entry_duration.get())
-
-    except ValueError:      
-        keypress = ('s' if entry_keypress.getboolean() else entry_keypress.get())
-        if entry_key.getboolean(): key = 'left'
-        else: key = entry_key.get()
-        if entry_interval.getboolean(): interval = 0.0
-        else: interval = float(entry_interval.get())
-        if entry_duration.getboolean(): duration = 0.0
-        else: duration = float(entry_duration.get())
+def clicker():    
+    keypress = 's' if entry_keypress.getboolean() else entry_keypress.get()
+    key = 'left' if entry_key.getboolean() else entry_key.get()
+    interval = 0.0 if entry_interval.getboolean() else float(entry_interval.get())
+    duration = 0.0 if entry_duration.getboolean() else duration = float(entry_duration.get())
     messagebox.showinfo("Clicker","Starting with "+key+" key, "+str(interval)+" interval !!.\nPress | "+str(keypress)+" | key for start clicker !!")
     clicker_tool(keypress, key, interval, duration)
 
