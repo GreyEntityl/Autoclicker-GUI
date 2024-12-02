@@ -27,7 +27,7 @@ def clicker_tool(keypress='s', clicks=2, key='left', interval=0.0, duration=0.0,
         if keyboard.is_pressed(keypress):
             m=True
             print('Autoclicker turned on')
-            time.sleep(0.5)
+            time.sleep(0.15)
         c = 0.00001
         tim=time.monotonic()
         s=0.0
@@ -37,7 +37,7 @@ def clicker_tool(keypress='s', clicks=2, key='left', interval=0.0, duration=0.0,
                 print(cps,'cps reached')
                 m=False
                 print('Autoclicker turned off') 
-                time.sleep(0.5)
+                time.sleep(0.15)
                 break
                 
             click(duration,button)
@@ -58,7 +58,7 @@ def clicker_tool(keypress='s', clicks=2, key='left', interval=0.0, duration=0.0,
                 if keyboard.is_pressed(keypress):
                     print(cps,'cps reached')
                     m=False
-                    time.sleep(0.5)
+                    time.sleep(0.15)
                     break
                 
 

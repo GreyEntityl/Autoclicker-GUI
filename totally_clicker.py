@@ -28,7 +28,7 @@ def clicker_tool(keypress='s', key='left', interval=0.0, duration=0.0):
         if keyboard.is_pressed(keypress):
             m=True
             print('Autoclicker turned on')
-            time.sleep(0.5)
+            time.sleep(0.15)
         tim=time.monotonic()
         c=0
         cps="N/A"
@@ -36,8 +36,8 @@ def clicker_tool(keypress='s', key='left', interval=0.0, duration=0.0):
             if keyboard.is_pressed(keypress):
                 print(cps,'cps reached')
                 m=False
-                print('Autoclicker turned off') 
-                time.sleep(0.5)
+                print('Autoclicker turned off')
+                time.sleep(0.15)
                 break
                 
             click(duration,button)
@@ -49,15 +49,19 @@ def clicker_tool(keypress='s', key='left', interval=0.0, duration=0.0):
                 if keyboard.is_pressed(keypress):
                     print(cps,'cps reached')
                     m=False
-                    time.sleep(0.5)
+                    time.sleep(0.15)
                     break
                 
 
-def clicker():    
+def clicker():
+    entry_keypress.get().strip().lower()
     keypress = 's' if entry_keypress.getboolean() else entry_keypress.get()
+    entry_key.get().strip().lower()
     key = 'left' if entry_key.getboolean() else entry_key.get()
+    entry_interval.get().strip().lower()
     interval = 0.0 if entry_interval.getboolean() else float(entry_interval.get())
-    duration = 0.0 if entry_duration.getboolean() else duration = float(entry_duration.get())
+    entry_duration.get().strip().lower()
+    duration = 0.0 if entry_duration.getboolean() else float(entry_duration.get())
     messagebox.showinfo("Clicker","Starting with "+key+" key, "+str(interval)+" interval !!.\nPress | "+str(keypress)+" | key for start clicker !!")
     clicker_tool(keypress, key, interval, duration)
 
